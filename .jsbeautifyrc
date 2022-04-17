@@ -1,0 +1,13 @@
+{
+  "beautify.language": {
+    "js": null,
+    "css": ["css", "scss"],
+    "html": ["htm", "html", "xml"]
+  },
+  "end_with_newline": true,
+  "indent_with_tabs": true,
+  "indent_handlebars": true,
+  "indent_size": 2,
+  "wrap_attributes": "force-aligned",
+  "wrap_line_length": 90
+}

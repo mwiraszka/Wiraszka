@@ -1,0 +1,40 @@
+mw-header {
+  background-image: linear-gradient(3deg, $mw-color-bg-header-footer-1 0%, $mw-color-bg-header-footer-2 100%);
+  color: $mw-color-text-white-primary;
+  border-bottom: 1px solid $mw-color-bg-main;
+  outline: 2px solid darken($mw-color-bg-main, 20%);
+  padding: $mw-component-spacing calc(#{$mw-component-spacing} * 3);
+  white-space: nowrap;
+
+  h1 {
+    font-weight: 400;
+  }
+
+  h2 {
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .pentadecagon-icon {
+    opacity: 90%;
+    width: 30px;
+  }
+}
+
+@include respond-to('lt-sm') {
+  h1 {
+    text-align: center;
+  }
+  
+  h2 {
+    justify-content: center !important;
+    font-size: calc(#{$h2} - 2px);
+  }
+  
+  .pentadecagon-icon {
+    width: 24px !important;
+  }
+}

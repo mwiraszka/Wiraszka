@@ -1,0 +1,58 @@
+<header class="card-header">
+	<h3>{{ title?.replaceAll('-', ' ') | titlecase }}</h3>
+	<div class="controls-container">
+		<button (click)="isDescriptionOpen = !isDescriptionOpen"
+						[disabled]="isDescriptionOpen"
+						[ngClass]="isDescriptionOpen ? 'description-open' : ''">
+			<span class="button-text">
+				Details
+			</span>
+			<fa-icon [icon]="faCircleInfo"></fa-icon>
+		</button>
+		<a href="{{ githubUrl }}"
+			 title="{{ title }} on GitHub"
+			 target="_blank">
+			<span>Code</span>
+			<fa-icon [icon]="faCode"></fa-icon>
+		</a>
+	</div>
+</header>
+
+<hr />
+
+<div class="card-body"
+		 [ngClass]="isDescriptionOpen ? 'display-description' : ''">
+	<ng-container *ngIf="isDescriptionOpen">
+		<aside class="description">
+			<button class="close-button"
+							(click)="isDescriptionOpen = false">
+				<fa-icon [icon]="faClose"
+								 size="lg"></fa-icon>
+			</button>
+			<p class="main-text">{{ description }}</p>
+			<div class="link-area"
+					 [ngClass]="isUnderConstruction ? 'under-construction' : ''">
+				<ng-container *ngIf="isUnderConstruction">
+					<div class="under-construction-message">
+						<fa-icon [icon]="faHelmetSafety"></fa-icon>
+						<span>Coming Summer 2022!</span>
+					</div>
+				</ng-container>
+				<a href="{{ appUrl }}"
+					 title="{{ title }}"
+					 target="_blank">
+					{{ appUrl }}
+				</a>
+			</div>
+		</aside>
+	</ng-container>
+
+	<ul class="screenshots">
+		<li *ngFor="let screenshot of screenshots; let i = index">
+			<img src="assets/screenshots/{{ screenshot }}.png"
+					 alt="{{ title?.replaceAll('-', ' ') | titlecase }} &mdash; screenshot {{ i + 1 }}"
+					 (click)="onScreenshotSelect(screenshot)"
+					 [ngClass]="screenshot" />
+		</li>
+	</ul>
+</div>

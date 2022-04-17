@@ -1,0 +1,217 @@
+$cb-primary-color: hsl(235, 22%, 30%);
+$lcc-primary-color: hsl(210, 40%, 40%);
+
+mw-card {
+  min-width: 300px;
+  max-width: 500px;
+  max-height: 500px;
+  box-shadow: 1px 3px 7px 1px $mw-color-shadow;
+  color: $mw-color-text-white-primary;
+  background: $mw-color-card-1; // Fallback
+  background-image: radial-gradient($mw-color-card-2 0%, $mw-color-card-1 100%);
+  border-radius: $mw-border-radius;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  &.chordbomb {
+    .card-header { background-color: $cb-primary-color; }
+    hr { border-top: 2px solid lighten($cb-primary-color, 30%); }
+    .screenshots li { background-color: darken($cb-primary-color, 15%); }
+  }
+
+  &.london-chess-club {
+    .card-header { background-color: $lcc-primary-color; }
+    hr { border-top: 2px solid lighten($lcc-primary-color, 13%); }
+    .screenshots li { background-color: darken($lcc-primary-color, 25%); }
+  }
+
+  .card-header {
+    width: 100%;
+    padding: $mw-component-spacing;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top-left-radius: $mw-border-radius;
+    border-top-right-radius: $mw-border-radius;
+
+    h3 {
+      color: darken($mw-color-text-white-primary, 5%);
+      font-weight: 600;
+    }
+
+    .controls-container {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a {
+      margin-right: 10px; // Compensation for misalignment
+    }
+
+    button.description-open {
+      font-weight: bold;
+      color: lighten($mw-color-text-white-primary, 15%);
+    }
+
+    a,
+    button {
+      border: none;
+      background: inherit;
+      font-size: $h5;
+      opacity: 80%;
+      color: $mw-color-text-white-primary;
+
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+
+      span {
+        margin-bottom: 3px; // Compensation for misalignment
+      }
+
+      &:not(.description-open):hover {
+        cursor: pointer;
+        color: lighten($mw-color-text-white-primary, 10%);
+        opacity: 100%;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  hr {
+    height: 2px;
+    width: 90%;
+    margin: 2px auto;
+  }
+  
+  .card-body {
+    position: relative;
+    height: 250px;
+    padding-top: 10px;
+
+    .screenshots {
+      width: 100%;
+      height: 100%;
+      position: absolute;    
+      z-index: 1;
+      top: 0;
+      left: 0;
+      
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-content: center;
+      gap: 4px;
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 110px;
+        max-width: 120px;
+        min-height: 110px;
+        max-height: 120px;
+        border-radius: $mw-border-radius;
+
+        img {
+          width: 90%;
+          height: 90%;
+          opacity: 70%;
+  
+          &:hover {
+            cursor: pointer;
+            opacity: 100%;
+          }
+
+          &.enlarge-lcc-2 {
+            position: absolute;
+            z-index: 100;
+            opacity: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  
+    .description {
+      background-color: $mw-color-bg-header-footer-2;
+      border-radius: $mw-border-radius;
+      position: absolute;
+      z-index: 10;
+      top: 5%;
+      left: 2%;
+      height: 90%;
+      width: 96%;
+
+      font-size: $h5;
+      padding: 1em 2em;
+      
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 12px;
+
+      .close-button {
+        background: inherit;
+        border: none;
+        margin-left: auto;
+
+        fa-icon {
+          color: $mw-color-text-white-primary;
+
+          &:hover {
+            color: lighten($mw-color-text-white-primary, 15%);
+          }
+        }
+      }
+
+      .main-text {
+        color: $mw-color-text-white-primary;
+        text-align: left;
+      }
+
+      .link-area {
+        background: $mw-color-bg-header-footer-2;
+        border: 2px solid $mw-color-divider-line;
+        padding: 12px 8px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+
+        &.under-construction {
+          border: 4px solid;
+          border-image: repeating-linear-gradient(-45deg, yellow, yellow 8px, black 8px, black 16px) 4;
+        }
+
+        .under-construction-message {
+          span {
+            margin-left: 4px;
+          }
+        }
+
+        a {
+          font-size: $h4;
+  
+          &:hover {
+            color: lighten($mw-color-text-white-primary, 20%);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &.display-description .screenshots {
+      opacity: 10%;
+    }
+  }
+}

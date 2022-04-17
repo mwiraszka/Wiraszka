@@ -1,0 +1,61 @@
+/* Global font sizes */
+$h1: 30px;
+$h2: 20px;
+$h3: 16px;
+$h4: 14px;
+$h5: 12px;
+$h6: 11px;
+
+
+/* Viewport breakpoint map */
+$breakpoints: (
+  'lt-sm': (
+    max-width: 500px,
+  ),
+  'gt-sm': (
+    min-width: 500px,
+  ),
+  'lt-md': (
+    max-width: 699px,
+  ),
+  'gt-md': (
+    min-width: 700px,
+  ),
+  'lt-lg': (
+    max-width: 999px,
+  ),
+  'gt-lg': (
+    min-width: 1000px,
+  ),
+  'lt-xl': (
+    max-width: 1199px,
+  ),
+  'gt-xl': (
+    min-width: 1200px,
+  ),
+);
+
+
+/* Global colours */
+$mw-color-bg-main: hsl(0, 3%, 97%);
+
+$mw-color-bg-header-footer-1: hsl(200, 7%, 50%);
+$mw-color-bg-header-footer-2: hsl(250, 2%, 22%);
+
+$mw-color-text-white-primary: hsl(0, 0%, 90%);
+$mw-color-text-white-secondary: hsl(0, 0%, 82%);
+$mw-color-text-black-primary: hsl(0, 0%, 10%);
+$mw-color-text-black-secondary: hsl(0, 0%, 18%);
+
+$mw-color-card-1: hsl(0, 0%, 81%);
+$mw-color-card-2: hsl(0, 0%, 92%);
+
+$mw-color-overlay-header: hsl(0, 0%, 10%);
+
+$mw-color-shadow: hsla(0, 0%, 40%, 0.7);
+$mw-color-divider-line: hsla(0, 0%, 90%, 0.1);
+
+
+/* Miscellaneous global variables */
+$mw-border-radius: 4px;
+$mw-component-spacing: 10px;

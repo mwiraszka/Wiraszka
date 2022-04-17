@@ -1,0 +1,7 @@
+mw-programming-page {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: space-between;
+  justify-content: center;
+  gap: $mw-component-spacing;
+}

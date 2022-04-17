@@ -1,0 +1,19 @@
+app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $mw-color-bg-main;
+}
+
+main {
+  flex-grow: 1;
+  margin: $mw-component-spacing;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mw-footer,
+mw-header {
+  flex-shrink: 0;
+}

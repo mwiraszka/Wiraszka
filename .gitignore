@@ -1,17 +1,24 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
+# Compiled output
 /dist
 /tmp
 /out-tsc
-# Only exists if Bazel was run
-/bazel-out
+package-lock.json
 
-# dependencies
+# Server config files
+/server
+
+# Backend images
+/backend/images
+
+# Angular and Babel Webpack
+/.angular
+
+# Dependencies
 /node_modules
 
-# profiling files
+# Profiling files
 chrome-profiler-events*.json
+speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
@@ -31,7 +38,6 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
-/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
@@ -41,6 +47,9 @@ yarn-error.log
 testem.log
 /typings
 
-# System Files
+# System files
 .DS_Store
 Thumbs.db
+
+# Work in progress
+/wip
