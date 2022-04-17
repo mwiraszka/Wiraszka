@@ -9,6 +9,7 @@ mw-footer {
   align-items: center;
   gap: $mw-component-spacing;
   padding: $mw-component-spacing;
+  white-space: nowrap;
 
   small {
     font-size: $h4;
@@ -16,6 +17,7 @@ mw-footer {
   
     .name {
       font-weight: bolder;
+      padding: 0 0.5em;
     }
   }
 
