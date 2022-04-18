@@ -1,36 +1,27 @@
+$image-width: 500px;
+$screen-edge-padding: 20px;
+
 mw-overlay {
   position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background: hsla(0, 0%, 30%, 80%);
+  animation: dim 0.2s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .overlay-content-container {
-    position: absolute;
-    z-index: 101;
-    opacity: 100%;
+    padding: $screen-edge-padding;
+    min-width: 300px;
+    min-height: 320px;
+    max-height: 100%;
+    max-width: 100%;
+    animation: appear 0.3s ease-out;
 
-    @include respond-to('lt-sm') {
-      /** Centre vertically:
-        * Half-way mark vertically (50vh)
-        * minus half of the current width
-        * minus half of the fixed 20px-high header
-        */
-      top: calc(50vh - (100vw - 20px)/2 - 10px);
-      left: 10px;
-      width: calc(100vw - 20px);
-      animation: appear-lt-sm 0.4s ease-out;
-    }
-  
-    @include respond-to('gt-sm') {
-      top: calc(50vh - 260px);
-      left: calc(50vw - 250px);
-      width: 500px;
-      animation: appear-gt-sm 0.6s ease-out;
-    }
-  
     header {
       background-color: $mw-color-overlay-header;
       border-top-left-radius: $mw-border-radius;
@@ -55,31 +46,30 @@ mw-overlay {
     }
   
     img {
+      z-index: 101;
+      opacity: 100%;
       width: 100%;
+      max-width: calc($image-width);
+      max-height: calc($image-width);
       border-bottom-left-radius: $mw-border-radius;
       border-bottom-right-radius: $mw-border-radius;
     }
   }
 }
 
-@keyframes appear-lt-sm {
-  from {
+@keyframes appear {
+  0% {
     opacity: 20%;
-    top: calc(50vh - (100vw - 20px)/2 + 10px);
+    transform: translateY(-20px);
+
   }
-  to {
+  100% {
     opacity: 100%;
-    top: calc(50vh - (100vw - 20px)/2 - 10px);
+    transform: 'none';
   }
 }
 
-@keyframes appear-gt-sm {
-  from {
-    opacity: 20%;
-    top: calc(50vh - 240px);
-  }
-  to {
-    opacity: 100%;
-    top: calc(50vh - 260px);
-  }
+@keyframes dim {
+  0% { background: hsla(0, 0%, 30%, 0%); }
+  100% { background: hsla(0, 0%, 30%, 80%); }
 }
