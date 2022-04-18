@@ -14,6 +14,14 @@ mw-footer {
   small {
     font-size: $h4;
     font-weight: 100;
+
+    :not(.name) {
+      /**
+       * As white as possible to compensate for the
+       * thin text (hard to see on a grey background)
+       */
+      color: white;
+    }
   
     .name {
       font-weight: bolder;
@@ -26,7 +34,7 @@ mw-footer {
     padding: 8px;
 
     fa-icon {
-      color: $mw-color-text-white-primary;
+      color: darken($mw-color-text-white-primary, 15%);
     
       &:hover {
         color: lighten($mw-color-text-white-primary, 20%);
